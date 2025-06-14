@@ -1,0 +1,248 @@
+/* Configurações Globais e Fontes */
+:root {
+    --primary-color: #e50914; /* Vermelho vibrante */
+    --dark-color: #121212;
+    --medium-dark-color: #1f1f1f;
+    --light-color: #f5f5f5;
+    --grey-color: #808080;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Animação de Fade-in */
+.content-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Seção Hero (Topo) */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* CAMINHO CORRIGIDO */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url(imagens/t1000-logo.jpg) no-repeat center center/cover;
+    background-attachment: fixed;
+    padding: 0 20px;
+}
+
+.hero-content .logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--grey-color);
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(229, 9, 20, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
+}
+
+
+/* Seções de Conteúdo */
+main {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content-section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 80px 40px;
+}
+
+/* Detalhes do Robô */
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--medium-dark-color);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+.inspiration-image {
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.card ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.card ul li::before {
+    content: '»';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+/* Timeline */
+.timeline {
+    list-style: none;
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid var(--primary-color);
+}
+
+.timeline li {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.timeline li::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: -37px;
+    top: 5px;
+    border: 2px solid var(--dark-color);
+}
+
+/* Tabela de Orçamento */
+.budget-table {
+    border: 1px solid var(--medium-dark-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding: 15px;
+}
+
+.table-row:not(:last-child) {
+    border-bottom: 1px solid var(--medium-dark-color);
+}
+
+.table-row.header {
+    background-color: var(--primary-color);
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.table-row:nth-child(even) {
+    background-color: var(--medium-dark-color);
+}
+
+.table-row.total {
+    font-weight: bold;
+    background-color: #333;
+}
+
+.support-text {
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+    color: var(--grey-color);
+}
+
+/* Grid da Equipe */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    text-align: center;
+}
+
+.team-member {
+    background-color: var(--medium-dark-color);
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.team-member:hover {
+    background-color: var(--primary-color);
+}
+
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--medium-dark-color);
+    color: var(--grey-color);
+    font-size: 0.9rem;
+}
+
+footer p:last-child {
+    margin-bottom: 0;
+}
